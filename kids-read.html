@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>小小读书郎 · 识字与绘本</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#fffaf0;color:#3b2f1e;font-family:"Microsoft YaHei","PingFang SC",sans-serif;
+     min-height:100vh;overflow:hidden}
+#app{max-width:1400px;margin:0 auto;padding:36px 48px;height:100vh;display:flex;flex-direction:column}
+.view{display:none;flex:1;flex-direction:column;min-height:0}
+.view.on{display:flex}
+h1{font-size:46px;color:#e65100;margin-bottom:8px;letter-spacing:2px}
+.sub{font-size:26px;color:#8a6a3a;margin-bottom:26px}
+.grid{display:grid;gap:22px;overflow-y:auto;padding:6px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.g6{grid-template-columns:repeat(6,1fr)}
+.card,.tile,.ctrl{background:#fff;border:5px solid #ffcc66;border-radius:24px;
+  font-family:inherit;cursor:pointer;color:#5a3d12;transition:transform .12s,box-shadow .12s;
+  box-shadow:0 7px 0 #ffe0a0}
+.card{font-size:44px;font-weight:900;padding:60px 20px;min-height:230px;display:flex;
+  align-items:center;justify-content:center;flex-direction:column;gap:16px}
+.card small{font-size:24px;font-weight:500;color:#a07838}
+.tile{font-size:34px;font-weight:800;padding:30px 10px;min-height:130px}
+.tile small{display:block;font-size:20px;color:#a07838;margin-top:8px;font-weight:500}
+.zi{font-size:72px;font-weight:900;padding:14px 4px;min-height:130px;line-height:1}
+.zi small{display:block;font-size:22px;color:#b08340;font-weight:600}
+.card.active,.tile.active,.zi.active,.ctrl.active{outline:9px solid #e65100;outline-offset:5px;
+  transform:translateY(-4px);box-shadow:0 11px 0 #ffcc66;background:#fff6e0}
+.bar{display:flex;gap:18px;margin-top:22px;flex-wrap:wrap}
+.ctrl{font-size:28px;font-weight:800;padding:18px 40px;border-radius:16px}
+.bigchar{font-size:210px;font-weight:900;color:#d84315;line-height:1.1;text-align:center}
+.py{font-size:52px;color:#6a4b20;text-align:center;margin:6px 0 18px;letter-spacing:3px}
+.words{font-size:38px;text-align:center;margin-bottom:16px;color:#5d4037}
+.sent{background:#fff;border:5px solid #ffcc66;border-radius:22px;padding:26px 34px;
+  font-size:36px;line-height:1.6;text-align:center}
+.detail{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}
+.story-card{text-align:left;font-size:38px;font-weight:800;padding:30px 34px;min-height:150px}
+.story-card small{display:block;font-size:22px;color:#a07838;margin-top:10px;font-weight:500}
+.page{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px}
+.page svg{width:min(46vh,420px);height:min(46vh,420px)}
+.page .txt{background:#fff;border:5px solid #ffcc66;border-radius:24px;padding:26px 40px;
+  font-size:42px;line-height:1.7;max-width:1050px;text-align:center}
+.pageno{font-size:24px;color:#a07838}
+.hint{font-size:22px;color:#b09060;margin-top:14px;text-align:center}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+/* ============ 识字数据：8组常用字 ============ */
+const CHARS=[
+ {name:'数字',icon:'1️⃣',list:[
+  ['一','yī','一个 · 第一','我有一支铅笔。'],
+  ['二','èr','二月 · 第二','二月里，花开了。'],
+  ['三','sān','三岁 · 三只','桌上有三只苹果。'],
+  ['四','sì','四季 · 四个','一年有四个季节。'],
+  ['五','wǔ','五岁 · 五个','我有五个手指头。'],
+  ['六','liù','六月 · 六个','六月里天气热。'],
+  ['七','qī','七天 · 七月','一星期有七天。'],
+  ['八','bā','八个 · 八月','八只小鸟在飞。'],
+  ['九','jiǔ','九个 · 九月','九月里，树叶黄了。'],
+  ['十','shí','十个 · 十分','十根手指真有用。']]},
+ {name:'自然',icon:'☀️',list:[
+  ['日','rì','太阳 · 日子','太阳出来了，天亮了。'],
+  ['月','yuè','月亮 · 月光','月亮弯弯像小船。'],
+  ['水','shuǐ','喝水 · 水果','我每天要多喝水。'],
+  ['火','huǒ','火光 · 火车','火车呜呜向前跑。'],
+  ['山','shān','高山 · 山羊','山上有一棵大树。'],
+  ['石','shí','石头 · 石子','河边有许多小石头。'],
+  ['田','tián','田地 · 水田','田里种着小苗。'],
+  ['土','tǔ','泥土 · 土地','花种在泥土里。'],
+  ['天','tiān','天空 · 今天','今天天空很蓝。'],
+  ['云','yún','白云 · 云朵','白云在天上飘。'],
+  ['雨','yǔ','下雨 · 雨水','下雨了，要打伞。'],
+  ['风','fēng','大风 · 风车','风把树叶吹跑了。']]},
+ {name:'家人',icon:'👨‍👩‍👧',list:[
+  ['爸','bà','爸爸','爸爸带我去公园。'],
+  ['妈','mā','妈妈','妈妈做的饭真香。'],
+  ['爷','yé','爷爷','爷爷在院子里下棋。'],
+  ['奶','nǎi','奶奶 · 牛奶','奶奶给我讲故事。'],
+  ['哥','gē','哥哥','哥哥跑得很快。'],
+  ['姐','jiě','姐姐','姐姐在看书。'],
+  ['弟','dì','弟弟','弟弟还很小。'],
+  ['妹','mèi','妹妹','妹妹会唱歌了。'],
+  ['我','wǒ','我们','我今年六岁了。'],
+  ['你','nǐ','你好','你好，很高兴见你。'],
+  ['他','tā','他们','他在门口等我。']]},
+ {name:'身体',icon:'🧒',list:[
+  ['口','kǒu','开口 · 门口','张开嘴，说“啊”。'],
+  ['耳','ěr','耳朵','耳朵可以听声音。'],
+  ['目','mù','目光 · 耳目','目就是眼睛。'],
+  ['手','shǒu','小手 · 拍手','我用手写字画画。'],
+  ['足','zú','足球 · 手足','用脚踢足球。'],
+  ['头','tóu','头发 · 点头','我点了点头。'],
+  ['心','xīn','开心 · 小心','我今天很开心。'],
+  ['牙','yá','牙齿 · 刷牙','早晚要刷牙。']]},
+ {name:'动物',icon:'🐱',list:[
+  ['猫','māo','小猫 · 猫咪','小猫在晒太阳。'],
+  ['狗','gǒu','小狗','小狗摇着尾巴。'],
+  ['鸟','niǎo','小鸟','小鸟在树上唱歌。'],
+  ['鱼','yú','小鱼 · 金鱼','小鱼在水里游。'],
+  ['马','mǎ','小马 · 马路','小马跑得飞快。'],
+  ['牛','niú','小牛 · 牛奶','牛在草地上吃草。'],
+  ['羊','yáng','小羊 · 山羊','小羊的毛白白的。'],
+  ['兔','tù','兔子','兔子跳得高。'],
+  ['鸡','jī','小鸡','小鸡叽叽叫。'],
+  ['鸭','yā','鸭子','鸭子会游泳。'],
+  ['虫','chóng','虫子','叶子上有一条虫。']]},
+ {name:'颜色',icon:'🎨',list:[
+  ['红','hóng','红色 · 红花','红红的太阳升起来。'],
+  ['黄','huáng','黄色 · 黄叶','黄色的叶子落下来。'],
+  ['蓝','lán','蓝色 · 蓝天','蓝蓝的天上飘着云。'],
+  ['绿','lǜ','绿色 · 绿草','草地绿绿的。'],
+  ['白','bái','白色 · 白云','天上有一朵白云。'],
+  ['黑','hēi','黑色','小猫是黑色的。'],
+  ['粉','fěn','粉色','桃花是粉色的。']]},
+ {name:'方位',icon:'🧭',list:[
+  ['上','shàng','上面 · 上学','小鸟在树上。'],
+  ['下','xià','下面 · 下雨','小狗在桌子下。'],
+  ['左','zuǒ','左边','左手拿书。'],
+  ['右','yòu','右边','右手写字。'],
+  ['前','qián','前面','我走在前面。'],
+  ['后','hòu','后面','他跟在后面。'],
+  ['大','dà','大树 · 长大','大象的鼻子很长。'],
+  ['小','xiǎo','小猫 · 小心','小猫小小的。'],
+  ['中','zhōng','中间','我坐在中间。']]},
+ {name:'动作',icon:'🏃',list:[
+  ['走','zǒu','走路','我走路去上学。'],
+  ['跑','pǎo','跑步','小朋友在跑步。'],
+  ['跳','tiào','跳高','兔子跳得高。'],
+  ['看','kàn','看书 · 看见','我在看书。'],
+  ['听','tīng','听话 · 听见','认真听老师讲话。'],
+  ['说','shuō','说话','我会说故事。'],
+  ['吃','chī','吃饭','该吃饭了。'],
+  ['喝','hē','喝水','我喝了一杯水。'],
+  ['笑','xiào','微笑','小朋友笑了。'],
+  ['玩','wán','玩耍','我们在外面玩。']]}
+];
+
+/* ============ 绘本数据：6个短故事 ============ */
+const STORIES=[
+ {title:'小马过河',emoji:'🐴',pages:[
+  {t:'小马驮着一袋麦子去磨坊，走到半路，一条小河挡住了去路。',s:'river'},
+  {t:'松鼠大声说：“别过去！河水很深，我的朋友掉进去啦！”',s:'squirrel'},
+  {t:'老牛慢慢说：“不怕不怕，河水很浅，才到我的小腿。”',s:'cow'},
+  {t:'小马不知道该听谁的，跑回家问妈妈。',s:'horse'},
+  {t:'妈妈说：“孩子，光听别人说不行，你自己去试一试呀。”',s:'mom'},
+  {t:'小马小心地走进河里——原来河水既不像松鼠说的那么深，也不像老牛说的那么浅。',s:'river'}]},
+ {title:'龟兔赛跑',emoji:'🐢',pages:[
+  {t:'兔子和乌龟比赛跑步。兔子跑得飞快，把乌龟甩在后面。',s:'rabbit'},
+  {t:'兔子跑到半路，看见一棵大树，心想：反正乌龟慢，我先睡一觉。',s:'tree'},
+  {t:'乌龟一步一步往前爬，一直没有停下来。',s:'turtle'},
+  {t:'太阳快落山了，兔子醒过来，吓得赶紧往前跑。',s:'sun'},
+  {t:'可是乌龟已经先到了终点。大家都为乌龟鼓掌。',s:'trophy'},
+  {t:'兔子红了脸，它明白了：不能骄傲，坚持才会赢。',s:'rabbit'}]},
+ {title:'小星星',emoji:'⭐',pages:[
+  {t:'一闪一闪亮晶晶，满天都是小星星。',s:'star'},
+  {t:'挂在天上放光明，好像许多小眼睛。',s:'star'},
+  {t:'一闪一闪亮晶晶，满天都是小星星。',s:'moon'},
+  {t:'宝宝抬头数星星，一颗两颗三颗星。',s:'star'}]},
+ {title:'小猫钓鱼',emoji:'🐱',pages:[
+  {t:'小猫和妈妈去河边钓鱼。蜻蜓飞来了，小猫去追蜻蜓。',s:'cat'},
+  {t:'蝴蝶飞来了，小猫又去追蝴蝶。',s:'butterfly'},
+  {t:'妈妈钓到了一条大鱼，小猫的桶里还是空的。',s:'fish'},
+  {t:'妈妈说说：“做事要专心，不能三心二意。”',s:'mom'},
+  {t:'小猫坐下来，一动不动地盯着鱼竿，终于也钓到了一条鱼！',s:'fish'}]},
+ {title:'小雨点',emoji:'🌧️',pages:[
+  {t:'小雨点，沙沙沙，落在花园里，花儿乐得张嘴巴。',s:'rain'},
+  {t:'小雨点，沙沙沙，落在水池里，鱼儿乐得摇尾巴。',s:'fish'},
+  {t:'小雨点，沙沙沙，落在田野里，小苗乐得往上长。',s:'tree'},
+  {t:'雨停了，太阳出来了，天上挂起一道彩虹。',s:'rainbow'}]},
+ {title:'两只老虎',emoji:'🐯',pages:[
+  {t:'两只老虎，两只老虎，跑得快，跑得快。',s:'tiger'},
+  {t:'一只没有耳朵，一只没有尾巴，真奇怪，真奇怪。',s:'tiger'},
+  {t:'两只老虎，两只老虎，跑得快，跑得快。',s:'tiger'},
+  {t:'跑过小山，跑过小河，一起玩耍真快乐。',s:'sun'}]}
+];
+
+/* ============ 简笔画 SVG ============ */
+function scene(s){
+  const sky='<rect width="400" height="400" fill="#e8f6ff"/>';
+  const ground='<rect y="300" width="400" height="100" fill="#c8e6a0"/>';
+  const sun='<circle cx="330" cy="70" r="42" fill="#ffd54f"/><g stroke="#ffb300" stroke-width="6">'+
+    '<path d="M330 10v-16M330 146v16M270 70h-16M406 70h16M288 28l-12-12M384 124l12 12M372 28l12-12M276 124l-12 12"/></g>';
+  const m={
+    river:sky+'<rect y="250" width="400" height="150" fill="#9ad7f5"/><path d="M0 280q60-20 120 0t120 0 160 0" stroke="#fff" stroke-width="8" fill="none"/>'+sun,
+    squirrel:sky+ground+'<ellipse cx="200" cy="270" rx="55" ry="45" fill="#a1673b"/><circle cx="200" cy="215" r="40" fill="#b97746"/><path d="M165 190q35-60 70 0" fill="#a1673b"/><circle cx="186" cy="212" r="5" fill="#000"/><circle cx="214" cy="212" r="5" fill="#000"/>'+sun,
+    cow:sky+ground+'<ellipse cx="200" cy="250" rx="90" ry="55" fill="#f5f5f5"/><circle cx="290" cy="220" r="38" fill="#f5f5f5"/><path d="M275 190l10-22 12 22" fill="#d7a24c"/><circle cx="305" cy="215" r="5" fill="#000"/>'+sun,
+    horse:sky+ground+'<ellipse cx="200" cy="255" rx="80" ry="45" fill="#c98a4b"/><rect x="250" y="180" width="45" height="60" rx="18" fill="#c98a4b"/><path d="M255 185l-8-40 30 25" fill="#8d5a2b"/><circle cx="280" cy="205" r="5" fill="#000"/>'+sun,
+    mom:sky+ground+'<circle cx="200" cy="170" r="42" fill="#ffcc9c"/><path d="M158 165q42-70 84 0" fill="#7b4b2a"/><circle cx="186" cy="172" r="5" fill="#000"/><circle cx="214" cy="172" r="5" fill="#000"/><path d="M185 195q15 14 30 0" stroke="#c33" stroke-width="5" fill="none"/><rect x="160" y="215" width="80" height="90" rx="20" fill="#f06292"/>'+sun,
+    rabbit:sky+ground+'<ellipse cx="200" cy="255" rx="55" ry="45" fill="#fff"/><circle cx="200" cy="195" r="42" fill="#fff"/><ellipse cx="182" cy="145" rx="12" ry="38" fill="#fff"/><ellipse cx="218" cy="145" rx="12" ry="38" fill="#fff"/><circle cx="186" cy="195" r="5" fill="#000"/><circle cx="214" cy="195" r="5" fill="#000"/>'+sun,
+    tree:sky+ground+'<rect x="180" y="200" width="40" height="110" fill="#8d5a2b"/><circle cx="200" cy="180" r="70" fill="#66bb6a"/><circle cx="150" cy="200" r="45" fill="#4caf50"/><circle cx="250" cy="200" r="45" fill="#4caf50"/>'+sun,
+    turtle:sky+'<rect y="300" width="400" height="100" fill="#c8e6a0"/><ellipse cx="200" cy="270" rx="80" ry="50" fill="#81c784"/><path d="M140 260h120M170 235v70M230 235v70" stroke="#4caf50" stroke-width="5"/><circle cx="300" cy="255" r="25" fill="#a5d6a7"/><circle cx="308" cy="250" r="4" fill="#000"/>'+sun,
+    sun:sky+ground+sun,
+    trophy:sky+ground+'<path d="M150 150h100v50q0 50-50 50t-50-50z" fill="#ffd54f"/><path d="M150 165h-30v25q0 30 30 30M250 165h30v25q0 30-30 30" stroke="#ffb300" stroke-width="10" fill="none"/><rect x="190" y="250" width="20" height="40" fill="#d4a017"/>',
+    star:sky+'<g fill="#ffd54f"><path d="M200 60l18 45 48 4-37 31 12 47-41-26-41 26 12-47-37-31 48-4z"/><path d="M80 150l10 26 28 2-21 18 7 27-24-15-24 15 7-27-21-18 28-2z"/><path d="M330 180l8 20 21 2-16 13 5 21-18-11-18 11 5-21-16-13 21-2z"/></g><circle cx="200" cy="350" r="45" fill="#ffcc9c"/><circle cx="186" cy="345" r="5" fill="#000"/><circle cx="214" cy="345" r="5" fill="#000"/>',
+    moon:sky+'<path d="M260 60a80 80 0 1 0 0 140 90 90 0 1 1 0-140z" fill="#ffd54f"/><g fill="#fff"><circle cx="90" cy="90" r="6"/><circle cx="140" cy="60" r="4"/><circle cx="100" cy="180" r="5"/></g><rect y="300" width="400" height="100" fill="#c8e6a0"/>',
+    cat:sky+'<rect y="300" width="400" height="100" fill="#c8e6a0"/><circle cx="200" cy="200" r="55" fill="#b0bec5"/><path d="M160 165l-10-45 40 25M240 165l10-45-40 25" fill="#b0bec5"/><circle cx="182" cy="195" r="6" fill="#000"/><circle cx="218" cy="195" r="6" fill="#000"/><path d="M185 220q15 12 30 0" stroke="#c33" stroke-width="5" fill="none"/>'+sun,
+    butterfly:sky+ground+'<ellipse cx="175" cy="200" rx="45" ry="55" fill="#ff8a65"/><ellipse cx="225" cy="200" rx="45" ry="55" fill="#ff8a65"/><rect x="196" y="170" width="8" height="70" rx="4" fill="#6d4c41"/><path d="M198 175q-25-40-40-45M202 175q25-40 40-45" stroke="#6d4c41" stroke-width="4" fill="none"/>',
+    fish:sky+'<rect y="250" width="400" height="150" fill="#9ad7f5"/><ellipse cx="200" cy="270" rx="60" ry="35" fill="#ff8a65"/><path d="M260 270l50-35v70z" fill="#ff7043"/><circle cx="165" cy="262" r="6" fill="#000"/>',
+    rain:sky+ground+'<g stroke="#42a5f5" stroke-width="6" stroke-linecap="round"><path d="M80 80l-15 35M150 60l-15 35M220 90l-15 35M290 60l-15 35M350 100l-15 35M120 150l-15 35M260 160l-15 35"/></g><ellipse cx="200" cy="290" rx="70" ry="25" fill="#a5d6a7"/>',
+    rainbow:sky+ground+'<g fill="none" stroke-width="18"><path d="M60 320a140 140 0 0 1 280 0" stroke="#ef5350"/><path d="M82 320a118 118 0 0 1 236 0" stroke="#ffca28"/><path d="M104 320a96 96 0 0 1 192 0" stroke="#42a5f5"/><path d="M126 320a74 74 0 0 1 148 0" stroke="#66bb6a"/></g>',
+    tiger:sky+ground+'<circle cx="200" cy="200" r="55" fill="#ffb300"/><path d="M160 155l-10-40 40 25M240 155l10-40-40 25" fill="#ffb300"/><path d="M175 165v20M200 158v22M225 165v20" stroke="#5d4037" stroke-width="8"/><circle cx="182" cy="195" r="6" fill="#000"/><circle cx="218" cy="195" r="6" fill="#000"/><path d="M185 225q15 12 30 0" stroke="#c33" stroke-width="5" fill="none"/>'
+  };
+  return '<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">'+(m[s]||m.sun)+'</svg>';
+}
+
+/* ============ 页面状态 ============ */
+let st={view:'home',g:0,ci:0,si:0,pi:0},hist=[];
+const app=document.getElementById('app');
+
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+function render(){
+  let h='',sub='';
+  if(st.view==='home'){
+    sub='用遥控器方向键选择，按“确定”进入';
+    h='<div class="grid g2">'+
+      '<button class="card focusable" data-a="chars">📖 识字乐园<small>80 个常用字，带拼音和组词</small></button>'+
+      '<button class="card focusable" data-a="stories">🎈 绘本故事<small>6 个小故事，一页一页翻</small></button>'+
+      '</div><div class="hint">按遥控器“返回键”回到上一页</div>';
+  }else if(st.view==='groups'){
+    sub='识字乐园 · 选一组';
+    h='<div class="grid g4">'+CHARS.map((g,i)=>
+      '<button class="tile focusable" data-g="'+i+'">'+g.icon+' '+g.name+'<small>'+g.list.length+' 个字</small></button>').join('')+'</div>';
+  }else if(st.view==='chars'){
+    const g=CHARS[st.g];sub=g.icon+' '+g.name+' · 选一个字';
+    h='<div class="grid g6">'+g.list.map((x,i)=>
+      '<button class="zi focusable" data-ci="'+i+'">'+x[0]+'<small>'+x[1]+'</small></button>').join('')+'</div>';
+  }else if(st.view==='zi'){
+    const x=CHARS[st.g].list[st.ci];sub=CHARS[st.g].name+' · 第 '+(st.ci+1)+' / '+CHARS[st.g].list.length+' 字';
+    h='<div class="detail"><div class="bigchar">'+x[0]+'</div><div class="py">'+x[1]+'</div>'+
+      '<div class="words">'+esc(x[2])+'</div><div class="sent">'+esc(x[3])+'</div></div>';
+  }else if(st.view==='stories'){
+    sub='绘本故事 · 选一个';
+    h='<div class="grid g2">'+STORIES.map((s,i)=>
+      '<button class="story-card focusable" data-s="'+i+'">'+s.emoji+' '+s.title+'<small>'+s.pages.length+' 页 · 方向键翻页</small></button>').join('')+'</div>';
+  }else if(st.view==='page'){
+    const s=STORIES[st.si],p=s.pages[st.pi];sub=s.title+' · 第 '+(st.pi+1)+' / '+s.pages.length+' 页';
+    h='<div class="page">'+scene(p.s)+'<div class="txt">'+esc(p.t)+'</div>'+
+      '<div class="pageno">'+(st.pi+1)+' / '+s.pages.length+'</div></div>';
+  }
+  app.innerHTML='<h1>小小读书郎</h1><div class="sub">'+sub+'</div><div class="view on">'+h+'</div>';
+  const acts={};
+  app.querySelectorAll('[data-a]').forEach(b=>b.onclick=()=>go(b.dataset.a));
+  app.querySelectorAll('[data-g]').forEach(b=>b.onclick=()=>{push();st.g=+b.dataset.g;st.ci=0;st.view='chars';render()});
+  app.querySelectorAll('[data-ci]').forEach(b=>b.onclick=()=>{push();st.ci=+b.dataset.ci;st.view='zi';render()});
+  app.querySelectorAll('[data-s]').forEach(b=>b.onclick=()=>{push();st.si=+b.dataset.s;st.pi=0;st.view='page';render()});
+  setFocus(0);
+}
+function push(){hist.push({...st})}
+function go(v){push();st.view=v;render()}
+function back(){
+  if(!hist.length)return;
+  st=hist.pop();render();return true;
+}
+function setFocus(i){
+  const els=[...app.querySelectorAll('.focusable')];
+  els.forEach(e=>e.classList.remove('active'));
+  if(els[i])els[i].classList.add('active');
+}
+function move(dir){
+  const els=[...app.querySelectorAll('.focusable')];
+  if(!els.length)return;
+  let cur=els.findIndex(e=>e.classList.contains('active'));
+  if(cur<0)cur=0;
+  if(dir==='left'){setFocus(Math.max(0,cur-1));return}
+  if(dir==='right'){setFocus(Math.min(els.length-1,cur+1));return}
+  const r=els[cur].getBoundingClientRect(),cy=r.top+r.height/2,cx=r.left+r.width/2;
+  let best=-1,bd=1e9;
+  els.forEach((el,i)=>{
+    if(i===cur)return;
+    const q=el.getBoundingClientRect(),qy=q.top+q.height/2,qx=q.left+q.width/2,dy=qy-cy;
+    if(dir==='down'&&dy<10)return;
+    if(dir==='up'&&dy>-10)return;
+    const d=Math.abs(dy)*2+Math.abs(qx-cx);
+    if(d<bd){bd=d;best=i}
+  });
+  if(best>=0)setFocus(best);
+}
+function next(){
+  if(st.view==='zi'){
+    const l=CHARS[st.g].list;
+    if(st.ci<l.length-1){st.ci++;render()}
+  }else if(st.view==='page'){
+    const p=STORIES[st.si].pages;
+    if(st.pi<p.length-1){st.pi++;render()}
+  }
+}
+function prev(){
+  if(st.view==='zi'&&st.ci>0){st.ci--;render()}
+  else if(st.view==='page'&&st.pi>0){st.pi--;render()}
+}
+document.addEventListener('keydown',function(e){
+  const k=e.key;
+  if(k==='ArrowLeft'||k==='ArrowRight'||k==='ArrowUp'||k==='ArrowDown'){
+    if(st.view==='zi'){if(k==='ArrowLeft')prev();else if(k==='ArrowRight')next()}
+    else if(st.view==='page'){if(k==='ArrowLeft')prev();else if(k==='ArrowRight')next()}
+    else move(k==='ArrowLeft'?'left':k==='ArrowRight'?'right':k==='ArrowUp'?'up':'down');
+    e.preventDefault();return;
+  }
+  if(k==='Enter'||k===' '){
+    const a=app.querySelector('.focusable.active');
+    if(a)a.click();
+    else if(st.view==='zi'||st.view==='page')next();
+    e.preventDefault();return;
+  }
+  if(k==='Escape'||k==='Backspace'){
+    if(!back()){st={view:'home',g:0,ci:0,si:0,pi:0};hist=[];render()}
+    e.preventDefault();return;
+  }
+});
+render();
+</script>
+</body>
+</html>

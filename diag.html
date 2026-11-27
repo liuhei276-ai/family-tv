@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>电视连接测试</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#fff8e7;color:#3b2f1e;font-family:"Microsoft YaHei",sans-serif;
+       min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px}
+  .box{background:#fff;border:6px solid #ffb300;border-radius:28px;padding:56px 72px;
+       max-width:1100px;text-align:center;box-shadow:0 10px 0 #ffe0a0}
+  .ok{font-size:88px;font-weight:900;color:#e65100;line-height:1.2}
+  .sub{font-size:38px;margin:24px 0 8px;font-weight:700}
+  .tip{font-size:28px;color:#7a5c2e;line-height:1.7}
+  .time{font-size:24px;color:#999;margin-top:28px}
+  a.btn{display:inline-block;margin-top:36px;background:#ff8f00;color:#fff;text-decoration:none;
+        font-size:36px;font-weight:800;padding:22px 56px;border-radius:18px;box-shadow:0 6px 0 #e67e00}
+  a.btn:focus,a.btn.on{outline:8px solid #e65100;outline-offset:6px}
+</style>
+</head>
+<body>
+<div class="box">
+  <div class="ok">✅ 连上了</div>
+  <div class="sub">电视已经成功打开这台电脑的页面</div>
+  <div class="tip">
+    <p>能看到这一页，说明<b>网络没问题</b>，之前的白屏是浏览器或视频插件的问题。</p>
+    <p>现在可以打开识字和绘本了 ↓</p>
+  </div>
+  <a class="btn on" id="go" href="kids-read.html">打开识字绘本 →</a>
+  <div class="time" id="t"></div>
+</div>
+<script>
+  document.getElementById('t').textContent='当前时间 '+new Date().toLocaleString('zh-CN');
+  var g=document.getElementById('go');g.focus();
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Enter'){g.click();e.preventDefault();}
+  });
+</script>
+</body>
+</html>

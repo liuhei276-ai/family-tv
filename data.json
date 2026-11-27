@@ -1,0 +1,711 @@
+{
+  "built": "2026-11-27 14:02",
+  "source": "B站公开视频（关键词搜索 + 免费可嵌入过滤）",
+  "categories": [
+    {
+      "name": "儿歌律动",
+      "icon": "🎵",
+      "age": 3
+    },
+    {
+      "name": "恐龙动物",
+      "icon": "🦕",
+      "age": 4
+    },
+    {
+      "name": "科学小实验",
+      "icon": "🔬",
+      "age": 5
+    },
+    {
+      "name": "识字启蒙",
+      "icon": "📝",
+      "age": 4
+    },
+    {
+      "name": "绘本故事",
+      "icon": "📚",
+      "age": 4
+    },
+    {
+      "name": "博物馆",
+      "icon": "🏛️",
+      "age": 6
+    }
+  ],
+  "groups": {
+    "儿歌律动": [
+      {
+        "id": "BV179yWz8EnW",
+        "title": "宝宝巴士儿歌 3D版——理发师，一手拿剪刀一手拿喷雾",
+        "channel": "宝宝巴士BabyBus",
+        "channelUrl": "https://space.bilibili.com/222156641",
+        "url": "https://www.bilibili.com/video/BV179yWz8EnW",
+        "cover": "https://i1.hdslb.com/bfs/archive/b58a97a79f73f75e59843eaeca8c4bfab3e498e4.jpg@448w_252h_1c.webp",
+        "duration": 144,
+        "category": "儿歌律动",
+        "minAge": 3,
+        "reason": "儿歌律动 · 2 分钟，宝宝巴士BabyBus"
+      },
+      {
+        "id": "BV18N25BuEsJ",
+        "title": "宝宝巴士儿歌 3D版——顶呱呱，学习欣赏活力律动儿歌",
+        "channel": "宝宝巴士BabyBus",
+        "channelUrl": "https://space.bilibili.com/222156641",
+        "url": "https://www.bilibili.com/video/BV18N25BuEsJ",
+        "cover": "https://i2.hdslb.com/bfs/archive/a4cf11c21626c903e0105714d2f39273c491d377.jpg@448w_252h_1c.webp",
+        "duration": 173,
+        "category": "儿歌律动",
+        "minAge": 3,
+        "reason": "儿歌律动 · 3 分钟，宝宝巴士BabyBus"
+      },
+      {
+        "id": "BV1zu4m1T72z",
+        "title": "【彩虹糖】幼儿启蒙早教 这些彩色的冰淇淋里藏着什么宝贝呢，小朋友，快来和我一起挖挖看吧！",
+        "channel": "一朵小红花吖吖",
+        "channelUrl": "https://space.bilibili.com/176787234",
+        "url": "https://www.bilibili.com/video/BV1zu4m1T72z",
+        "cover": "https://i0.hdslb.com/bfs/archive/ecf6a66aa9f8496dae2b98eadb4d39af011ba261.jpg@448w_252h_1c.webp",
+        "duration": 188,
+        "category": "儿歌律动",
+        "minAge": 3,
+        "reason": "儿歌律动 · 3 分钟，一朵小红花吖吖"
+      },
+      {
+        "id": "BV12x411E7xp",
+        "title": "我会自己上厕所-宝宝巴士儿歌",
+        "channel": "宝宝巴士BabyBus",
+        "channelUrl": "https://space.bilibili.com/222156641",
+        "url": "https://www.bilibili.com/video/BV12x411E7xp",
+        "cover": "https://i1.hdslb.com/bfs/archive/38a0c5b03c2c71907bbd324f34a140726fc8c7ac.jpg@448w_252h_1c.webp",
+        "duration": 117,
+        "category": "儿歌律动",
+        "minAge": 3,
+        "reason": "儿歌律动 · 2 分钟，宝宝巴士BabyBus"
+      },
+      {
+        "id": "BV1Ra4y1w7nV",
+        "title": "奇奇和妙妙-经典儿歌精选",
+        "channel": "不好起昵称的小兔兔",
+        "channelUrl": "https://space.bilibili.com/485508489",
+        "url": "https://www.bilibili.com/video/BV1Ra4y1w7nV",
+        "cover": "https://i1.hdslb.com/bfs/archive/bca7ee67d56b1b115900fb6bd9ab9ee98a29dddd.jpg@448w_252h_1c.webp",
+        "duration": 124,
+        "category": "儿歌律动",
+        "minAge": 3,
+        "reason": "儿歌律动 · 2 分钟，不好起昵称的小兔兔"
+      },
+      {
+        "id": "BV1WN4y1p7s5",
+        "title": "儿歌数鸭子",
+        "channel": "中二轻少女",
+        "channelUrl": "https://space.bilibili.com/43976376",
+        "url": "https://www.bilibili.com/video/BV1WN4y1p7s5",
+        "cover": "https://i1.hdslb.com/bfs/archive/7bc129ad08f8bb4e98e1e80370001dfa3ba4ac04.jpg@448w_252h_1c.webp",
+        "duration": 112,
+        "category": "儿歌律动",
+        "minAge": 3,
+        "reason": "儿歌律动 · 2 分钟，中二轻少女"
+      },
+      {
+        "id": "BV1F44y147f5",
+        "title": "儿歌 一只哈巴狗_宝宝巴士儿歌合集",
+        "channel": "宝盖丁王",
+        "channelUrl": "https://space.bilibili.com/589632969",
+        "url": "https://www.bilibili.com/video/BV1F44y147f5",
+        "cover": "https://i1.hdslb.com/bfs/archive/515939f1e7a02fd8958209811447dd3d5654b44b.jpg@448w_252h_1c.webp",
+        "duration": 95,
+        "category": "儿歌律动",
+        "minAge": 3,
+        "reason": "儿歌律动 · 2 分钟，宝盖丁王"
+      },
+      {
+        "id": "BV1LX2VB7Eq6",
+        "title": "宝宝巴士儿歌 3D版——小水花，学习欣赏活力律动儿歌",
+        "channel": "宝宝巴士BabyBus",
+        "channelUrl": "https://space.bilibili.com/222156641",
+        "url": "https://www.bilibili.com/video/BV1LX2VB7Eq6",
+        "cover": "https://i1.hdslb.com/bfs/archive/1086ef8ed3d585e9517b458840becdbbca3870e1.jpg@448w_252h_1c.webp",
+        "duration": 154,
+        "category": "儿歌律动",
+        "minAge": 3,
+        "reason": "儿歌律动 · 3 分钟，宝宝巴士BabyBus"
+      },
+      {
+        "id": "BV1bp4y1W76v",
+        "title": "【宝宝巴士】奇妙小医生",
+        "channel": "拾微灵珏",
+        "channelUrl": "https://space.bilibili.com/523362344",
+        "url": "https://www.bilibili.com/video/BV1bp4y1W76v",
+        "cover": "https://i2.hdslb.com/bfs/archive/699e04a4997dc2f97f7da85e175dfd688a1937e6.jpg@448w_252h_1c.webp",
+        "duration": 136,
+        "category": "儿歌律动",
+        "minAge": 3,
+        "reason": "儿歌律动 · 2 分钟，拾微灵珏"
+      },
+      {
+        "id": "BV1oE411y74S",
+        "title": "爱帮忙的怪兽卡车 宝宝巴士疯狂儿歌",
+        "channel": "软妹酱好可爱",
+        "channelUrl": "https://space.bilibili.com/431613874",
+        "url": "https://www.bilibili.com/video/BV1oE411y74S",
+        "cover": "https://i1.hdslb.com/bfs/archive/8f3de2f78394ceac1c998c6ff9197efa83c9c505.jpg@448w_252h_1c.webp",
+        "duration": 162,
+        "category": "儿歌律动",
+        "minAge": 3,
+        "reason": "儿歌律动 · 3 分钟，软妹酱好可爱"
+      },
+      {
+        "id": "BV13Z421a7cY",
+        "title": "儿童经典动画儿歌！坚持不放弃！",
+        "channel": "羽小帅成长乐园",
+        "channelUrl": "https://space.bilibili.com/513910825",
+        "url": "https://www.bilibili.com/video/BV13Z421a7cY",
+        "cover": "https://i1.hdslb.com/bfs/archive/0ee56a280aa65c63b276bf29daf6384a5e453f17.jpg@448w_252h_1c.webp",
+        "duration": 161,
+        "category": "儿歌律动",
+        "minAge": 3,
+        "reason": "儿歌律动 · 3 分钟，羽小帅成长乐园"
+      },
+      {
+        "id": "BV1poWa6oER6",
+        "title": "Wheels on the Bus   @CoComelon Nursery Rhymes & Kids Songs",
+        "channel": "早学笔记",
+        "channelUrl": "https://space.bilibili.com/50944796",
+        "url": "https://www.bilibili.com/video/BV1poWa6oER6",
+        "cover": "https://i1.hdslb.com/bfs/archive/e0912ca342443509be262373b734a8f214103305.jpg@448w_252h_1c.webp",
+        "duration": 229,
+        "category": "儿歌律动",
+        "minAge": 3,
+        "reason": "儿歌律动 · 4 分钟，早学笔记"
+      }
+    ],
+    "恐龙动物": [
+      {
+        "id": "BV1yabr6YE2z",
+        "title": "宝宝巴士 宝宝动物世界",
+        "channel": "Pisania_E",
+        "channelUrl": "https://space.bilibili.com/1198646372",
+        "url": "https://www.bilibili.com/video/BV1yabr6YE2z",
+        "cover": "https://i0.hdslb.com/bfs/archive/13ef03e0a81c573d3f41ea468a4fdbb5db37a439.jpg@448w_252h_1c.webp",
+        "duration": 422,
+        "category": "恐龙动物",
+        "minAge": 4,
+        "reason": "恐龙动物 · 7 分钟，Pisania_E"
+      },
+      {
+        "id": "BV1gW411q7u2",
+        "title": "动物乐园-宝宝巴士儿歌",
+        "channel": "宝宝巴士BabyBus",
+        "channelUrl": "https://space.bilibili.com/222156641",
+        "url": "https://www.bilibili.com/video/BV1gW411q7u2",
+        "cover": "https://i0.hdslb.com/bfs/archive/ea2a024605c48efff00db2e499f8563db5d68f8a.jpg@448w_252h_1c.webp",
+        "duration": 66,
+        "category": "恐龙动物",
+        "minAge": 4,
+        "reason": "恐龙动物 · 1 分钟，宝宝巴士BabyBus"
+      },
+      {
+        "id": "BV1jcEz6DENS",
+        "title": "原来动物的小时候都这么可爱，你最喜欢哪一个? #动物 #动物的迷惑行为 #可爱动物 #保护动物m",
+        "channel": "佳耀趣谈",
+        "channelUrl": "https://space.bilibili.com/478588775",
+        "url": "https://www.bilibili.com/video/BV1jcEz6DENS",
+        "cover": "https://i2.hdslb.com/bfs/archive/b9d6b0f6a4cf887ff90f80cdbf0819a1fe0986d4.jpg@448w_252h_1c.webp",
+        "duration": 141,
+        "category": "恐龙动物",
+        "minAge": 4,
+        "reason": "恐龙动物 · 2 分钟，佳耀趣谈"
+      },
+      {
+        "id": "BV1Ezax6sExU",
+        "title": "幼儿识动物",
+        "channel": "常州快速公交系統",
+        "channelUrl": "https://space.bilibili.com/3546920893024902",
+        "url": "https://www.bilibili.com/video/BV1Ezax6sExU",
+        "cover": "https://i2.hdslb.com/bfs/archive/dbf5fcb0730533c74827c24ef3c61ffba560ad5b.jpg@448w_252h_1c.webp",
+        "duration": 78,
+        "category": "恐龙动物",
+        "minAge": 4,
+        "reason": "恐龙动物 · 1 分钟，常州快速公交系統"
+      },
+      {
+        "id": "BV1brUxYDEZp",
+        "title": "认识动物：《狸花猫》- 幼儿科普｜动物科普｜有趣动物｜动物世界",
+        "channel": "六一儿童动画",
+        "channelUrl": "https://space.bilibili.com/1344221701",
+        "url": "https://www.bilibili.com/video/BV1brUxYDEZp",
+        "cover": "https://i2.hdslb.com/bfs/archive/93b0ed470cf948cc601c28c8d35b78e3b31098eb.jpg@448w_252h_1c.webp",
+        "duration": 83,
+        "category": "恐龙动物",
+        "minAge": 4,
+        "reason": "恐龙动物 · 1 分钟，六一儿童动画"
+      },
+      {
+        "id": "BV17c411Z7tY",
+        "title": "野生动物_认识野生动物名称_儿童英语",
+        "channel": "yoyodi晴",
+        "channelUrl": "https://space.bilibili.com/702842650",
+        "url": "https://www.bilibili.com/video/BV17c411Z7tY",
+        "cover": "https://i1.hdslb.com/bfs/archive/6c911c87850199ea909c3be679612c61bcce89b5.jpg@448w_252h_1c.webp",
+        "duration": 320,
+        "category": "恐龙动物",
+        "minAge": 4,
+        "reason": "恐龙动物 · 5 分钟，yoyodi晴"
+      },
+      {
+        "id": "BV1htCRYsEFs",
+        "title": "认识动物：《树懒与松鼠》- 幼儿科普｜动物科普｜有趣动物｜动物世界",
+        "channel": "六一儿童动画",
+        "channelUrl": "https://space.bilibili.com/1344221701",
+        "url": "https://www.bilibili.com/video/BV1htCRYsEFs",
+        "cover": "https://i0.hdslb.com/bfs/archive/531cbe2a1ea12ad370155c37426715e75d0f1168.jpg@448w_252h_1c.webp",
+        "duration": 82,
+        "category": "恐龙动物",
+        "minAge": 4,
+        "reason": "恐龙动物 · 1 分钟，六一儿童动画"
+      },
+      {
+        "id": "BV1qZ4y1M7d2",
+        "title": "周末小朋友们带你走入儿童动物园世界，认识动物，还给动物喂食",
+        "channel": "QiQi成长记",
+        "channelUrl": "https://space.bilibili.com/516981243",
+        "url": "https://www.bilibili.com/video/BV1qZ4y1M7d2",
+        "cover": "https://i0.hdslb.com/bfs/archive/2d8e763b4a546d0dd5f2560f9f53e302604bb5bb.jpg@448w_252h_1c.webp",
+        "duration": 249,
+        "category": "恐龙动物",
+        "minAge": 4,
+        "reason": "恐龙动物 · 4 分钟，QiQi成长记"
+      },
+      {
+        "id": "BV1zizJYtEWk",
+        "title": "认识动物：《啄木鸟》- 幼儿科普｜动物科普｜有趣动物｜动物世界",
+        "channel": "六一儿童动画",
+        "channelUrl": "https://space.bilibili.com/1344221701",
+        "url": "https://www.bilibili.com/video/BV1zizJYtEWk",
+        "cover": "https://i1.hdslb.com/bfs/archive/a1151bfbebd92631f20412ef95785922d429ba32.jpg@448w_252h_1c.webp",
+        "duration": 103,
+        "category": "恐龙动物",
+        "minAge": 4,
+        "reason": "恐龙动物 · 2 分钟，六一儿童动画"
+      },
+      {
+        "id": "BV11z1WYYE7t",
+        "title": "认识动物：《螳螂与蝉》- 幼儿科普｜动物科普｜有趣动物｜动物世界",
+        "channel": "六一儿童动画",
+        "channelUrl": "https://space.bilibili.com/1344221701",
+        "url": "https://www.bilibili.com/video/BV11z1WYYE7t",
+        "cover": "https://i0.hdslb.com/bfs/archive/f6f343989ef3dbcbdabb9cf4f52d62cbf97b41b2.jpg@448w_252h_1c.webp",
+        "duration": 125,
+        "category": "恐龙动物",
+        "minAge": 4,
+        "reason": "恐龙动物 · 2 分钟，六一儿童动画"
+      },
+      {
+        "id": "BV1gBSXYaEPG",
+        "title": "认识动物：《小兔子》- 幼儿科普｜动物科普｜有趣动物｜动物世界｜小白兔",
+        "channel": "六一儿童动画",
+        "channelUrl": "https://space.bilibili.com/1344221701",
+        "url": "https://www.bilibili.com/video/BV1gBSXYaEPG",
+        "cover": "https://i1.hdslb.com/bfs/archive/1ea9a44f3bb000bc5c3b54279316b76beb1b6177.jpg@448w_252h_1c.webp",
+        "duration": 69,
+        "category": "恐龙动物",
+        "minAge": 4,
+        "reason": "恐龙动物 · 1 分钟，六一儿童动画"
+      },
+      {
+        "id": "BV1eqzBYzEmw",
+        "title": "认识动物：《丹顶鹤》- 幼儿科普｜动物科普｜有趣动物｜动物世界",
+        "channel": "六一儿童动画",
+        "channelUrl": "https://space.bilibili.com/1344221701",
+        "url": "https://www.bilibili.com/video/BV1eqzBYzEmw",
+        "cover": "https://i0.hdslb.com/bfs/archive/b6a78e6eafd5f2b81aa1d443b451b62cf0438339.jpg@448w_252h_1c.webp",
+        "duration": 101,
+        "category": "恐龙动物",
+        "minAge": 4,
+        "reason": "恐龙动物 · 2 分钟，六一儿童动画"
+      }
+    ],
+    "科学小实验": [
+      {
+        "id": "BV1Zg4J6HESX",
+        "title": "科学小实验《会跳舞的绿豆》",
+        "channel": "bili_89474793436",
+        "channelUrl": "https://space.bilibili.com/488565097",
+        "url": "https://www.bilibili.com/video/BV1Zg4J6HESX",
+        "cover": "https://i2.hdslb.com/bfs/archive/886a68e9fbc44a5bc49ecf01170b19ec686986d4.jpg@448w_252h_1c.webp",
+        "duration": 144,
+        "category": "科学小实验",
+        "minAge": 5,
+        "reason": "科学小实验 · 2 分钟，bili_89474793436"
+      },
+      {
+        "id": "BV1DV4y1B7Fy",
+        "title": "6个在家就能做的小实验-科学小实验SSE",
+        "channel": "科学小实验SSE",
+        "channelUrl": "https://space.bilibili.com/20805842",
+        "url": "https://www.bilibili.com/video/BV1DV4y1B7Fy",
+        "cover": "https://i2.hdslb.com/bfs/archive/ad31a03a4de5bfc4fefdb95195d3ac0dd7f89739.jpg@448w_252h_1c.webp",
+        "duration": 204,
+        "category": "科学小实验",
+        "minAge": 5,
+        "reason": "科学小实验 · 3 分钟，科学小实验SSE"
+      },
+      {
+        "id": "BV1pNxL6LEsF",
+        "title": "建议收藏！14个在家就能做的小实验，简单又有趣",
+        "channel": "发明家101",
+        "channelUrl": "https://space.bilibili.com/3690989518588077",
+        "url": "https://www.bilibili.com/video/BV1pNxL6LEsF",
+        "cover": "https://i0.hdslb.com/bfs/archive/129e5db85d89636d8f94a3b23ea63ae67a78d967.jpg@448w_252h_1c.webp",
+        "duration": 518,
+        "category": "科学小实验",
+        "minAge": 5,
+        "reason": "科学小实验 · 9 分钟，发明家101"
+      },
+      {
+        "id": "BV1zbsM6QEhB",
+        "title": "科学小实验小制作，一起动手做实验",
+        "channel": "良创工坊",
+        "channelUrl": "https://space.bilibili.com/696035468",
+        "url": "https://www.bilibili.com/video/BV1zbsM6QEhB",
+        "cover": "https://i1.hdslb.com/bfs/archive/e285a5e50b37d610a2a35305f2f68efbc3b12fd3.jpg@448w_252h_1c.webp",
+        "duration": 76,
+        "category": "科学小实验",
+        "minAge": 5,
+        "reason": "科学小实验 · 1 分钟，良创工坊"
+      },
+      {
+        "id": "BV1sf4y1a72o",
+        "title": "【科学小实验】打不湿的纸巾",
+        "channel": "☆小涵☆",
+        "channelUrl": "https://space.bilibili.com/24050322",
+        "url": "https://www.bilibili.com/video/BV1sf4y1a72o",
+        "cover": "https://i1.hdslb.com/bfs/archive/6fcc879db99bb93d29d78828e0b8d15279cb69bb.jpg@448w_252h_1c.webp",
+        "duration": 97,
+        "category": "科学小实验",
+        "minAge": 5,
+        "reason": "科学小实验 · 2 分钟，☆小涵☆"
+      },
+      {
+        "id": "BV1hk4y1Q7uy",
+        "title": "一高一低两支蜡烛被玻璃缸罩住，哪支先熄灭？很多人搞错 |科学小实验 | 这个小明 | 知识科普",
+        "channel": "这个小明呀",
+        "channelUrl": "https://space.bilibili.com/3546586154011212",
+        "url": "https://www.bilibili.com/video/BV1hk4y1Q7uy",
+        "cover": "https://i0.hdslb.com/bfs/archive/9f80a8c9d4e385cbdfc91a8696d14cc4d6312ddf.jpg@448w_252h_1c.webp",
+        "duration": 67,
+        "category": "科学小实验",
+        "minAge": 5,
+        "reason": "科学小实验 · 1 分钟，这个小明呀"
+      },
+      {
+        "id": "BV1Fd4y1G78S",
+        "title": "几个不可思议的科学小实验 #科学小实验",
+        "channel": "走近科学SCI",
+        "channelUrl": "https://space.bilibili.com/1351560575",
+        "url": "https://www.bilibili.com/video/BV1Fd4y1G78S",
+        "cover": "https://i1.hdslb.com/bfs/archive/912f53c002914bc7da1080dc23971ea335fbaab7.jpg@448w_252h_1c.webp",
+        "duration": 95,
+        "category": "科学小实验",
+        "minAge": 5,
+        "reason": "科学小实验 · 2 分钟，走近科学SCI"
+      },
+      {
+        "id": "BV1AqoaBqEFa",
+        "title": "挑战做100个科学小实验之-戳不破的纸巾，适合3-6岁小龄宝宝做哦！",
+        "channel": "莹莹老师爱科学",
+        "channelUrl": "https://space.bilibili.com/1085973996",
+        "url": "https://www.bilibili.com/video/BV1AqoaBqEFa",
+        "cover": "https://i0.hdslb.com/bfs/archive/4ee1231e71d430e7d6d2934bdf04cef8556e7cbd.jpg@448w_252h_1c.webp",
+        "duration": 104,
+        "category": "科学小实验",
+        "minAge": 5,
+        "reason": "科学小实验 · 2 分钟，莹莹老师爱科学"
+      },
+      {
+        "id": "BV1AW411i7AY",
+        "title": "【魔力科学小实验】（第58期）简单折了一下A4纸，中间咋多出一块？没用胶水啊@魔力科学小实验【中字】",
+        "channel": "魔力科学小实验",
+        "channelUrl": "https://space.bilibili.com/263782761",
+        "url": "https://www.bilibili.com/video/BV1AW411i7AY",
+        "cover": "https://i0.hdslb.com/bfs/archive/f2666a6fbfec8e7bbbe365bd7e788ce58a8ae74a.jpg@448w_252h_1c.webp",
+        "duration": 85,
+        "category": "科学小实验",
+        "minAge": 5,
+        "reason": "科学小实验 · 1 分钟，魔力科学小实验"
+      }
+    ],
+    "识字启蒙": [
+      {
+        "id": "BV1r24y1f7mb",
+        "title": "洪恩识字—日",
+        "channel": "在家英语启蒙",
+        "channelUrl": "https://space.bilibili.com/677514874",
+        "url": "https://www.bilibili.com/video/BV1r24y1f7mb",
+        "cover": "https://i0.hdslb.com/bfs/archive/7aaaef0747b2f3b6c5cc45a288dc803acbde5e66.jpg@448w_252h_1c.webp",
+        "duration": 195,
+        "category": "识字启蒙",
+        "minAge": 4,
+        "reason": "识字启蒙 · 3 分钟，在家英语启蒙"
+      },
+      {
+        "id": "BV1gZ4y1m7ZP",
+        "title": "兔小贝识字：一二三四五的二字你认识吗？二字的笔画你知道吗？",
+        "channel": "兔小贝识字",
+        "channelUrl": "https://space.bilibili.com/1863085713",
+        "url": "https://www.bilibili.com/video/BV1gZ4y1m7ZP",
+        "cover": "https://i2.hdslb.com/bfs/archive/553451d76f98873efd227672a3b1ed4b8a815845.jpg@448w_252h_1c.webp",
+        "duration": 154,
+        "category": "识字启蒙",
+        "minAge": 4,
+        "reason": "识字启蒙 · 3 分钟，兔小贝识字"
+      },
+      {
+        "id": "BV1dW4y1K7F5",
+        "title": "洪恩识字—也",
+        "channel": "在家英语启蒙",
+        "channelUrl": "https://space.bilibili.com/677514874",
+        "url": "https://www.bilibili.com/video/BV1dW4y1K7F5",
+        "cover": "https://i0.hdslb.com/bfs/archive/846f405c59922be4ad97531a301de08594f4b875.jpg@448w_252h_1c.webp",
+        "duration": 272,
+        "category": "识字启蒙",
+        "minAge": 4,
+        "reason": "识字启蒙 · 5 分钟，在家英语启蒙"
+      },
+      {
+        "id": "BV1qR4y1C7Ef",
+        "title": "洪恩识字—笑",
+        "channel": "在家英语启蒙",
+        "channelUrl": "https://space.bilibili.com/677514874",
+        "url": "https://www.bilibili.com/video/BV1qR4y1C7Ef",
+        "cover": "https://i2.hdslb.com/bfs/archive/d39cfb99b89dcbaa02ec29d5c3f4389da718f021.jpg@448w_252h_1c.webp",
+        "duration": 283,
+        "category": "识字启蒙",
+        "minAge": 4,
+        "reason": "识字启蒙 · 5 分钟，在家英语启蒙"
+      },
+      {
+        "id": "BV1hC4y1X7rG",
+        "title": "洪恩识字《厂》",
+        "channel": "一次顺利上岸",
+        "channelUrl": "https://space.bilibili.com/1961393222",
+        "url": "https://www.bilibili.com/video/BV1hC4y1X7rG",
+        "cover": "https://i1.hdslb.com/bfs/archive/ae8780dd3b3fb223e5a8b373c0457271b3a0a46a.jpg@448w_252h_1c.webp",
+        "duration": 242,
+        "category": "识字启蒙",
+        "minAge": 4,
+        "reason": "识字启蒙 · 4 分钟，一次顺利上岸"
+      },
+      {
+        "id": "BV1rc411U7Pv",
+        "title": "洪恩识字《晚》",
+        "channel": "一次顺利上岸",
+        "channelUrl": "https://space.bilibili.com/1961393222",
+        "url": "https://www.bilibili.com/video/BV1rc411U7Pv",
+        "cover": "https://i2.hdslb.com/bfs/archive/e199eadb85fb0b27ef360d32809c792f9a2fc3ed.jpg@448w_252h_1c.webp",
+        "duration": 345,
+        "category": "识字启蒙",
+        "minAge": 4,
+        "reason": "识字启蒙 · 6 分钟，一次顺利上岸"
+      },
+      {
+        "id": "BV1gj411s76f",
+        "title": "洪恩识字《千》",
+        "channel": "一次顺利上岸",
+        "channelUrl": "https://space.bilibili.com/1961393222",
+        "url": "https://www.bilibili.com/video/BV1gj411s76f",
+        "cover": "https://i0.hdslb.com/bfs/archive/e1e4c9b76560a76c86f6745249b82c29cc147af2.jpg@448w_252h_1c.webp",
+        "duration": 299,
+        "category": "识字启蒙",
+        "minAge": 4,
+        "reason": "识字启蒙 · 5 分钟，一次顺利上岸"
+      },
+      {
+        "id": "BV1wc411q7uF",
+        "title": "洪恩识字《万》",
+        "channel": "一次顺利上岸",
+        "channelUrl": "https://space.bilibili.com/1961393222",
+        "url": "https://www.bilibili.com/video/BV1wc411q7uF",
+        "cover": "https://i0.hdslb.com/bfs/archive/6c11ae46de5cffa904ad3130873aa929d4c568d4.jpg@448w_252h_1c.webp",
+        "duration": 293,
+        "category": "识字启蒙",
+        "minAge": 4,
+        "reason": "识字启蒙 · 5 分钟，一次顺利上岸"
+      },
+      {
+        "id": "BV1k14y1K7fV",
+        "title": "洪恩识字—着",
+        "channel": "在家英语启蒙",
+        "channelUrl": "https://space.bilibili.com/677514874",
+        "url": "https://www.bilibili.com/video/BV1k14y1K7fV",
+        "cover": "https://i2.hdslb.com/bfs/archive/fc06a47a0ae38d184f043e734e47e33a8f422733.jpg@448w_252h_1c.webp",
+        "duration": 276,
+        "category": "识字启蒙",
+        "minAge": 4,
+        "reason": "识字启蒙 · 5 分钟，在家英语启蒙"
+      },
+      {
+        "id": "BV1Zv4y1R7hW",
+        "title": "洪恩识字—心",
+        "channel": "在家英语启蒙",
+        "channelUrl": "https://space.bilibili.com/677514874",
+        "url": "https://www.bilibili.com/video/BV1Zv4y1R7hW",
+        "cover": "https://i1.hdslb.com/bfs/archive/e3565143c2eb8cf95d7e9b32fa50b0b987107346.jpg@448w_252h_1c.webp",
+        "duration": 282,
+        "category": "识字启蒙",
+        "minAge": 4,
+        "reason": "识字启蒙 · 5 分钟，在家英语启蒙"
+      },
+      {
+        "id": "BV1LX4y1K7sp",
+        "title": "洪恩识字 汉字启蒙—风",
+        "channel": "在家英语启蒙",
+        "channelUrl": "https://space.bilibili.com/677514874",
+        "url": "https://www.bilibili.com/video/BV1LX4y1K7sp",
+        "cover": "https://i2.hdslb.com/bfs/archive/d2c94849d559d2e11a5c10db7c06bbf8a80e3323.jpg@448w_252h_1c.webp",
+        "duration": 202,
+        "category": "识字启蒙",
+        "minAge": 4,
+        "reason": "识字启蒙 · 3 分钟，在家英语启蒙"
+      },
+      {
+        "id": "BV1kW4y1W7CL",
+        "title": "洪恩识字—多",
+        "channel": "在家英语启蒙",
+        "channelUrl": "https://space.bilibili.com/677514874",
+        "url": "https://www.bilibili.com/video/BV1kW4y1W7CL",
+        "cover": "https://i1.hdslb.com/bfs/archive/db809c1f86b69e8cb352c29ebb9b230d0186f43d.jpg@448w_252h_1c.webp",
+        "duration": 522,
+        "category": "识字启蒙",
+        "minAge": 4,
+        "reason": "识字启蒙 · 9 分钟，在家英语启蒙"
+      }
+    ],
+    "绘本故事": [
+      {
+        "id": "BV1xthdz8EJz",
+        "title": "儿童故事《爱生气的小兔子》教导孩子学会控制情绪并找到解决办法",
+        "channel": "汤圆妈讲故事",
+        "channelUrl": "https://space.bilibili.com/430574166",
+        "url": "https://www.bilibili.com/video/BV1xthdz8EJz",
+        "cover": "https://i0.hdslb.com/bfs/archive/667f7287be1093e5344701cc94cd4f44827a3619.jpg@448w_252h_1c.webp",
+        "duration": 409,
+        "category": "绘本故事",
+        "minAge": 4,
+        "reason": "绘本故事 · 7 分钟，汤圆妈讲故事"
+      },
+      {
+        "id": "BV1eU1cztELC",
+        "title": "睡前故事《班长邀请球球吃甜点肚子不舒服》儿童睡前故事。每个人肠胃不一样，要好好爱护肠胃，不舒服不要硬撑。",
+        "channel": "小慧姐姐讲故事",
+        "channelUrl": "https://space.bilibili.com/3632311209822624",
+        "url": "https://www.bilibili.com/video/BV1eU1cztELC",
+        "cover": "https://i2.hdslb.com/bfs/archive/f11e8a490d5c0976f7f8804b797d5f2b4bc8646e.jpg@448w_252h_1c.webp",
+        "duration": 308,
+        "category": "绘本故事",
+        "minAge": 4,
+        "reason": "绘本故事 · 5 分钟，小慧姐姐讲故事"
+      },
+      {
+        "id": "BV1u84y1N74i",
+        "title": "儿童睡前童话寓言故事：《司马光砸缸》 早教 动画 卡通 启蒙动画片精选",
+        "channel": "Mia的慢养日记",
+        "channelUrl": "https://space.bilibili.com/3493079707289771",
+        "url": "https://www.bilibili.com/video/BV1u84y1N74i",
+        "cover": "https://i1.hdslb.com/bfs/archive/f2225a05b204d9a6be75f0f6f0da767902b9f8c5.jpg@448w_252h_1c.webp",
+        "duration": 238,
+        "category": "绘本故事",
+        "minAge": 4,
+        "reason": "绘本故事 · 4 分钟，Mia的慢养日记"
+      },
+      {
+        "id": "BV1xpyizuEYW",
+        "title": "少儿童话故事《神笔马良》背景视频 音乐",
+        "channel": "视觉优化",
+        "channelUrl": "https://space.bilibili.com/1017929494",
+        "url": "https://www.bilibili.com/video/BV1xpyizuEYW",
+        "cover": "https://i2.hdslb.com/bfs/archive/59580641486572294853259a0f9bf6a0057e4f2f.jpg@448w_252h_1c.webp",
+        "duration": 232,
+        "category": "绘本故事",
+        "minAge": 4,
+        "reason": "绘本故事 · 4 分钟，视觉优化"
+      },
+      {
+        "id": "BV1c54y1k7hQ",
+        "title": "中国经典童话故事：08 寒号鸟",
+        "channel": "荆天城",
+        "channelUrl": "https://space.bilibili.com/600286761",
+        "url": "https://www.bilibili.com/video/BV1c54y1k7hQ",
+        "cover": "https://i1.hdslb.com/bfs/archive/c3be443070faf016a18a65b87ef82702e6caacad.jpg@448w_252h_1c.webp",
+        "duration": 321,
+        "category": "绘本故事",
+        "minAge": 4,
+        "reason": "绘本故事 · 5 分钟，荆天城"
+      }
+    ],
+    "博物馆": [
+      {
+        "id": "BV1SG411t74U",
+        "title": "爸妈带宝宝参观宜昌博物馆，沉浸式观看，从物种起源到近代史",
+        "channel": "大包二妹的幸福生活",
+        "channelUrl": "https://space.bilibili.com/1868215532",
+        "url": "https://www.bilibili.com/video/BV1SG411t74U",
+        "cover": "https://i0.hdslb.com/bfs/archive/44876975a9b2df42aa87dcf6533b3dba8fc4315f.jpg@448w_252h_1c.webp",
+        "duration": 420,
+        "category": "博物馆",
+        "minAge": 6,
+        "reason": "博物馆 · 7 分钟，大包二妹的幸福生活"
+      },
+      {
+        "id": "BV1K5CJY7EvL",
+        "title": "陪宝宝打卡北京铁道博物馆，第一天来了个寂寞，明日请早！",
+        "channel": "大包二妹的幸福生活",
+        "channelUrl": "https://space.bilibili.com/1868215532",
+        "url": "https://www.bilibili.com/video/BV1K5CJY7EvL",
+        "cover": "https://i0.hdslb.com/bfs/archive/1d03c1ea94ff556afe6a4c75d31a679c4d053a04.jpg@448w_252h_1c.webp",
+        "duration": 407,
+        "category": "博物馆",
+        "minAge": 6,
+        "reason": "博物馆 · 7 分钟，大包二妹的幸福生活"
+      },
+      {
+        "id": "BV1rFq1YcEEm",
+        "title": "陪宝宝打卡汽车博物馆，不仅好玩还好学，又是长见识的一天",
+        "channel": "大包二妹的幸福生活",
+        "channelUrl": "https://space.bilibili.com/1868215532",
+        "url": "https://www.bilibili.com/video/BV1rFq1YcEEm",
+        "cover": "https://i1.hdslb.com/bfs/archive/eb0afebd596c650984c1d6dcb6f40bcc7ec9af27.jpg@448w_252h_1c.webp",
+        "duration": 405,
+        "category": "博物馆",
+        "minAge": 6,
+        "reason": "博物馆 · 7 分钟，大包二妹的幸福生活"
+      },
+      {
+        "id": "BV1hW411M74o",
+        "title": "儿童博物馆",
+        "channel": "三生石前柳",
+        "channelUrl": "https://space.bilibili.com/276427224",
+        "url": "https://www.bilibili.com/video/BV1hW411M74o",
+        "cover": "https://i0.hdslb.com/bfs/archive/43a1a82866e68c8203dd83869a8015406ed898e8.jpg@448w_252h_1c.webp",
+        "duration": 130,
+        "category": "博物馆",
+        "minAge": 6,
+        "reason": "博物馆 · 2 分钟，三生石前柳"
+      },
+      {
+        "id": "BV1Lb4y1z7DF",
+        "title": "小小讲解员",
+        "channel": "饕餮1977",
+        "channelUrl": "https://space.bilibili.com/298315986",
+        "url": "https://www.bilibili.com/video/BV1Lb4y1z7DF",
+        "cover": "https://i0.hdslb.com/bfs/archive/0a9853f322c2ed0a31b8dfce197a97be750ef1d6.jpg@448w_252h_1c.webp",
+        "duration": 319,
+        "category": "博物馆",
+        "minAge": 6,
+        "reason": "博物馆 · 5 分钟，饕餮1977"
+      }
+    ]
+  },
+  "total": 55
+}
