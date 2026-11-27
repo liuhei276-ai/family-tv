@@ -3,81 +3,125 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#101523">
+<meta name="theme-color" content="#0d1226">
 <meta name="robots" content="noindex">
 <title>家庭影院 · 孩子精选</title>
 <!--
-  聚合版电视端：数据来自 data.json（后端自动拉取 B站公开视频生成）。
-  兼容老电视浏览器内核（Chrome 66+）：不用 aspect-ratio / gap / min() / 可选链。
+  聚合版电视端 v2：数据来自 data.json（后端自动拉取 B站公开视频生成）。
+  兼容老电视浏览器内核（Chrome 66+）：不用 aspect-ratio / gap / min() / inset / 可选链。
   遥控器：方向键移动、确定键进入、返回键回退。
 -->
 <style>
 *{box-sizing:border-box}
-html{font-size:1.15vw;background:#101523;overflow:hidden}
-body{margin:0;height:100vh;color:#f2f5ff;background:#101523;overflow:hidden;
+html{font-size:1.15vw;background:#0d1226;overflow:hidden}
+body{margin:0;height:100vh;color:#f4f7ff;overflow:hidden;
   font-family:"PingFang SC","MiSans","Noto Sans CJK SC","Microsoft YaHei",system-ui,sans-serif;
-  -webkit-font-smoothing:antialiased;cursor:none}
+  -webkit-font-smoothing:antialiased;cursor:none;
+  background:linear-gradient(135deg,#0c1128 0%,#151c3a 48%,#0c1128 100%)}
+body:before{content:"";position:fixed;left:-18rem;top:-22rem;width:62rem;height:62rem;
+  background:radial-gradient(circle,rgba(92,113,235,.20),rgba(92,113,235,0) 68%);pointer-events:none}
+body:after{content:"";position:fixed;right:-20rem;bottom:-26rem;width:66rem;height:66rem;
+  background:radial-gradient(circle,rgba(236,120,180,.14),rgba(236,120,180,0) 68%);pointer-events:none}
+::-webkit-scrollbar{width:.5rem}
+::-webkit-scrollbar-track{background:rgba(255,255,255,.03)}
+::-webkit-scrollbar-thumb{background:rgba(255,255,255,.18);border-radius:1rem}
 h1,h2,p{margin:0}
-#app{max-width:86rem;margin:0 auto;padding:1.6rem 2.6rem;height:100vh;display:flex;flex-direction:column}
-.top{display:flex;align-items:baseline;margin-bottom:1.1rem;flex-shrink:0}
-h1{font-size:2.5rem;color:#ffb74d;letter-spacing:.15rem;margin-right:1.4rem}
-.sub{font-size:1.35rem;color:#9aa8c8}
-.meta{margin-left:auto;font-size:1.05rem;color:#7f8db0}
+#app{position:relative;z-index:1;max-width:90rem;margin:0 auto;padding:1.6rem 2.8rem;height:100vh;display:flex;flex-direction:column}
+.top{display:flex;align-items:center;margin-bottom:1.2rem;padding-bottom:.9rem;flex-shrink:0;
+  border-bottom:.1rem solid rgba(255,255,255,.10);position:relative}
+.top:after{content:"";position:absolute;left:0;bottom:-.1rem;width:9rem;height:.28rem;
+  background:linear-gradient(90deg,#ffcf6b,#ff7ea8);border-radius:.2rem}
+h1{font-size:2.5rem;color:#ffcf6b;letter-spacing:.16rem;font-weight:900;
+  text-shadow:0 .2rem 1.2rem rgba(255,190,90,.28);margin-right:1.2rem}
+.brandbar{width:.45rem;height:2.5rem;background:linear-gradient(180deg,#ffcf6b,#ff7ea8);
+  border-radius:.3rem;margin-right:1rem}
+.pill{font-size:.95rem;color:#ffd687;background:rgba(255,190,90,.13);
+  border:.12rem solid rgba(255,190,90,.38);border-radius:2rem;padding:.28rem 1rem;margin-left:.9rem}
+.sub{font-size:1.3rem;color:#a9b7d8}
+.meta{margin-left:auto;font-size:1.05rem;color:#8b99bd;text-align:right}
 .view{display:none;flex:1;flex-direction:column;min-height:0}
 .view.on{display:flex}
-.grid{display:flex;flex-wrap:wrap;align-content:flex-start;overflow-y:auto;padding:.3rem;flex:1}
-.card{width:22%;margin:0 1% 1.2rem 0;background:#1c2440;border:.22rem solid #33416b;
-  border-radius:1.2rem;padding:1.6rem;cursor:pointer;color:#f2f5ff;text-align:left;
-  font-family:inherit;height:13rem}
-.card .ic{font-size:3.2rem;display:block;margin-bottom:.6rem}
-.card .nm{font-size:1.9rem;font-weight:800;display:block}
-.card .ds{font-size:1.1rem;color:#9aa8c8;margin-top:.5rem;display:block}
-.card.active{border-color:#ffb74d;background:#2a3357;transform:translateY(-.2rem);
-  box-shadow:0 0 0 .28rem rgba(255,183,77,.25)}
-.video{width:22%;margin:0 1% 1.2rem 0;background:#1c2440;border:.22rem solid #33416b;
-  border-radius:1rem;overflow:hidden;cursor:pointer;color:#f2f5ff;text-align:left;
-  font-family:inherit;padding:0}
-.video img{width:100%;height:8.5rem;object-fit:cover;display:block;background:#2a3357}
-.video .info{padding:.7rem .9rem}
+.grid{display:flex;flex-wrap:wrap;align-content:flex-start;overflow-y:auto;padding:.3rem .4rem .6rem .3rem;flex:1}
+/* 首页：海报墙卡片 */
+.card{position:relative;width:30.9%;height:12.4rem;margin:0 1.35% 1.1rem 0;overflow:hidden;
+  background:#1a2242;border:.2rem solid rgba(255,255,255,.13);border-radius:1.4rem;
+  cursor:pointer;color:#f4f7ff;text-align:left;font-family:inherit;
+  box-shadow:0 .7rem 1.8rem rgba(0,0,0,.32)}
+.card .cover{position:absolute;left:0;top:0;right:0;bottom:0;background-size:cover;
+  background-position:center;opacity:.52}
+.card .veil{position:absolute;left:0;top:0;right:0;bottom:0;
+  background:linear-gradient(180deg,rgba(11,16,38,.20) 0%,rgba(11,16,38,.72) 52%,rgba(11,16,38,.96) 100%)}
+.card .tone{position:absolute;left:0;bottom:0;width:100%;height:.42rem}
+.card .badge{position:absolute;left:1.1rem;top:1rem;width:3.7rem;height:3.7rem;
+  border-radius:50%;text-align:center;line-height:3.55rem;font-size:1.95rem;
+  background:rgba(255,255,255,.14);border:.15rem solid rgba(255,255,255,.36);
+  box-shadow:0 .3rem .9rem rgba(0,0,0,.3)}
+.card .rank{position:absolute;right:1.1rem;top:.1rem;font-size:4.2rem;font-weight:900;
+  color:rgba(255,255,255,.15);letter-spacing:-.2rem;line-height:1}
+.card .cbody{position:absolute;left:1.3rem;right:.9rem;bottom:1.05rem}
+.card .cname{font-size:1.95rem;font-weight:800;text-shadow:0 .2rem .7rem rgba(0,0,0,.7)}
+.card .cdesc{font-size:1.08rem;color:#d6deef;margin-top:.32rem}
+.card.active{border-color:#ffcf6b;transform:translateY(-.35rem) scale(1.015);
+  box-shadow:0 0 0 .32rem rgba(255,207,107,.55),0 1.4rem 3rem rgba(0,0,0,.5)}
+.card.active .cover{opacity:.82}
+/* 列表页：视频卡片 */
+.video{width:22%;margin:0 1% 1.2rem 0;background:#182040;border:.2rem solid rgba(255,255,255,.12);
+  border-radius:1.2rem;overflow:hidden;cursor:pointer;color:#f4f7ff;text-align:left;
+  font-family:inherit;padding:0;box-shadow:0 .6rem 1.6rem rgba(0,0,0,.3)}
+.video img{width:100%;height:9rem;object-fit:cover;display:block;background:#242d50}
+.video .info{padding:.75rem .9rem}
 .video .t{font-size:1.2rem;font-weight:700;line-height:1.35;height:3.3rem;overflow:hidden}
-.video .m{font-size:.95rem;color:#9aa8c8;margin-top:.4rem}
-.video.active{border-color:#ffb74d;transform:translateY(-.2rem);box-shadow:0 0 0 .28rem rgba(255,183,77,.25)}
+.video .m{font-size:.95rem;color:#9dabd0;margin-top:.4rem}
+.video.active{border-color:#ffcf6b;transform:translateY(-.25rem);
+  box-shadow:0 0 0 .3rem rgba(255,207,107,.55),0 1.2rem 2.4rem rgba(0,0,0,.5)}
+/* 播放页 */
 .play{flex:1;display:flex;flex-direction:column;min-height:0}
-.screen{flex:1;min-height:0;background:#000;border-radius:1rem;overflow:hidden}
+.screen{flex:1;min-height:0;background:#000;border-radius:1.2rem;overflow:hidden;
+  border:.2rem solid rgba(255,255,255,.12);box-shadow:0 1rem 2.6rem rgba(0,0,0,.5)}
 .screen iframe{width:100%;height:100%;border:0}
-.playbar{display:flex;align-items:center;margin-top:.8rem;flex-shrink:0}
-.ptitle{font-size:1.3rem;font-weight:700;flex:1;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;margin-right:1rem}
-.btn{background:#33416b;border:.18rem solid #4a5c8f;border-radius:.8rem;color:#f2f5ff;
-  font-size:1.2rem;font-weight:700;padding:.7rem 1.5rem;cursor:pointer;font-family:inherit;margin-left:.7rem}
-.btn.active{border-color:#ffb74d;background:#4a5c8f;box-shadow:0 0 0 .22rem rgba(255,183,77,.3)}
-.hint{font-size:.95rem;color:#7f8db0;margin-top:.6rem;text-align:center;flex-shrink:0}
+.playbar{display:flex;align-items:center;margin-top:.9rem;flex-shrink:0}
+.ptitle{font-size:1.3rem;font-weight:700;flex:1;overflow:hidden;white-space:nowrap;
+  text-overflow:ellipsis;margin-right:1rem;color:#e8edfb}
+.btn{background:#242e54;border:.18rem solid #3c4a78;border-radius:.85rem;color:#f4f7ff;
+  font-size:1.2rem;font-weight:700;padding:.72rem 1.5rem;cursor:pointer;font-family:inherit;margin-left:.7rem}
+.btn.active{border-color:#ffcf6b;background:#3a4674;box-shadow:0 0 0 .24rem rgba(255,207,107,.5)}
+.hint{font-size:.95rem;color:#8b99bd;margin-top:.6rem;text-align:center;flex-shrink:0}
 .err{background:#3a1f28;border:.22rem solid #ef5350;border-radius:1rem;padding:2rem;font-size:1.4rem;line-height:1.8}
-.loading{font-size:1.8rem;color:#ffb74d;text-align:center;padding:5rem}
+.loading{font-size:1.8rem;color:#ffcf6b;text-align:center;padding:5rem}
 </style>
 </head>
 <body>
 <div id="app"><div class="loading">正在加载视频清单…</div></div>
 <script>
 var DATA=null,st={view:'home',cat:0,vi:0},hist=[];
+var COLORS=['#ff6b9d','#38d6c0','#a78bfa','#f5c445','#5aa9f8','#c084fc','#34d399','#fb923c','#f87171'];
 var app=document.getElementById('app');
 function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
 
 function render(){
-  var h='',sub='',meta='';
+  var h='',sub='',meta='',pill='';
   if(st.view==='home'){
+    pill='<span class="pill">精选片库</span>';
     sub='选一个分类 · 方向键移动，确定键进入';
     meta=DATA.total+' 个视频 · 更新于 '+DATA.built;
     h='<div class="grid">';
     for(var i=0;i<DATA.categories.length;i++){
-      var c=DATA.categories[i];
-      h+='<button class="card focusable" data-cat="'+i+'"><span class="ic">'+c.icon+'</span>'+
-         '<span class="nm">'+esc(c.name)+'</span><span class="ds">'+
-         DATA.groups[c.name].length+' 个 · 适合 '+c.age+'+ 岁</span></button>';
+      var c=DATA.categories[i],g=DATA.groups[c.name]||[];
+      var cover=g.length&&g[0].cover?g[0].cover:'';
+      var color=COLORS[i%COLORS.length];
+      var num=(i+1)<10?'0'+(i+1):String(i+1);
+      h+='<button class="card focusable" data-cat="'+i+'">'+
+         (cover?'<div class="cover" style="background-image:url('+esc(cover)+')"></div>':'')+
+         '<div class="veil"></div><div class="tone" style="background:'+color+'"></div>'+
+         '<div class="badge">'+c.icon+'</div><div class="rank">'+num+'</div>'+
+         '<div class="cbody"><div class="cname">'+esc(c.name)+'</div>'+
+         '<div class="cdesc">'+g.length+' 个视频 · 适合 '+c.age+'+ 岁</div></div></button>';
     }
     h+='</div>';
   }else if(st.view==='list'){
     var c=DATA.categories[st.cat],vs=DATA.groups[c.name];
-    sub=c.icon+' '+c.name+' · 共 '+vs.length+' 个';
+    pill='<span class="pill">'+c.icon+' '+esc(c.name)+'</span>';
+    sub='共 '+vs.length+' 个视频 · 上下左右选择，确定键播放';
     h='<div class="grid">';
     for(var i=0;i<vs.length;i++){
       var v=vs[i];
@@ -88,7 +132,8 @@ function render(){
     h+='</div>';
   }else if(st.view==='play'){
     var v=DATA.groups[DATA.categories[st.cat].name][st.vi];
-    sub=DATA.categories[st.cat].name;
+    pill='<span class="pill">'+DATA.categories[st.cat].icon+' '+esc(DATA.categories[st.cat].name)+'</span>';
+    sub='正在播放，上下切换选片';
     meta=v.duration+' 秒';
     h='<div class="play"><div class="screen"><iframe src="https://player.bilibili.com/player.html?bvid='+
       encodeURIComponent(v.id)+'&page=1&high_quality=1&danmaku=0&autoplay=0" '+
@@ -99,7 +144,8 @@ function render(){
       '<button class="btn focusable" data-act="back">返回</button></div>'+
       '<div class="hint">B站官方播放器 · 弹幕已关闭 · 返回键回列表</div></div>';
   }
-  app.innerHTML='<div class="top"><h1>家庭影院</h1><div class="sub">'+sub+'</div><div class="meta">'+meta+'</div></div>'+
+  app.innerHTML='<div class="top"><div class="brandbar"></div><h1>家庭影院</h1>'+pill+
+                '<div class="sub">'+sub+'</div><div class="meta">'+meta+'</div></div>'+
                 '<div class="view on">'+h+'</div>';
   var bs=app.querySelectorAll('[data-cat]');
   for(var i=0;i<bs.length;i++){(function(b){b.onclick=function(){push();st.cat=parseInt(b.getAttribute('data-cat'),10);st.vi=0;st.view='list';render()}})(bs[i])}
@@ -121,6 +167,7 @@ function setFocus(i){
   var els=app.querySelectorAll('.focusable');
   for(var j=0;j<els.length;j++)els[j].className=els[j].className.replace(/\s*active\b/g,'');
   if(els[i])els[i].className+=' active';
+  if(els[i]&&els[i].scrollIntoView)els[i].scrollIntoView({block:'nearest'});
 }
 function move(dir){
   var els=app.querySelectorAll('.focusable');
