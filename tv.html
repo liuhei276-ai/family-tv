@@ -155,6 +155,12 @@ function render(){
   var as=app.querySelectorAll('[data-act]');
   for(var i=0;i<as.length;i++){(function(b){b.onclick=function(){act(b.getAttribute('data-act'))}})(as[i])}
   setFocus(0);
+  if(st.view==='play'){
+    setTimeout(function(){
+      var f=app.querySelector('iframe');
+      if(f&&f.focus)try{f.focus()}catch(e){}
+    },600);
+  }
 }
 function push(){hist.push({view:st.view,cat:st.cat,vi:st.vi})}
 function back(){if(!hist.length)return false;var p=hist.pop();st.view=p.view;st.cat=p.cat;st.vi=p.vi;render();return true}
@@ -189,6 +195,29 @@ function move(dir){
   }
   if(best>=0)setFocus(best);
 }
+/* 给安卓外壳（APK）调用的遥控器桥接：返回非 none/null 的串表示页面已处理，APK 不再转给网页 */
+var _exitArmed=0;
+function tvKey(name){
+  if(name==='left'||name==='right'||name==='up'||name==='down'){move(name);return 'ok'}
+  if(name==='ok'){
+    var a=app.querySelector('.focusable.active');
+    if(a)a.click();
+    return 'ok';
+  }
+  if(name==='back'){
+    if(back())return 'ok';
+    var t=Date.now();
+    if(t-_exitArmed<3000){_exitArmed=0;return 'exit'}
+    _exitArmed=t;
+    return 'ok';
+  }
+  if(name==='playpause'){return st.view==='play'?'space':'ok'}
+  if(name==='next'){if(st.view==='play')act('next');return 'ok'}
+  if(name==='prev'){if(st.view==='play')act('prev');return 'ok'}
+  if(name==='menu')return 'ok';
+  return 'none';
+}
+window.tvKey=tvKey;
 document.addEventListener('keydown',function(e){
   var k=e.key;
   if(k==='ArrowLeft'||k==='ArrowRight'||k==='ArrowUp'||k==='ArrowDown'){
